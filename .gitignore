@@ -47,3 +47,4 @@ nbproject
 .local
 *.Identifier
 *:Zone.Identifier
+/*.sqlite3
