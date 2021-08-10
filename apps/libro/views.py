@@ -4,7 +4,7 @@ from django.core.exceptions import ObjectDoesNotExist
 
 # Create your views here.
 def Home(request):
-    return render(request,'libro/index.html')
+    return render(request,'index.html')
 
 def crearAutor(request):
     if request.method == 'POST':
@@ -17,7 +17,7 @@ def crearAutor(request):
     return render(request,'libro/crear_autor.html',{'autor_form':autor_form})
 
 def listarAutor(request):
-    autores = Autor.objects.all()
+    autores = Autor.objects.filter(estado=True)
     return render(request,'libro/listar_autor.html',{'autores':autores})
 
 def editarAutor(request,id):
@@ -38,5 +38,10 @@ def editarAutor(request,id):
     
 def eliminarAutor(request,id):
     autor = Autor.objects.get(id=id)
-    autor.delete()
+    autor.estado = False
+    autor.save()
     return redirect('libro:listar_autor')
+    # if request.method == 'POST':
+    #     autor.delete()
+    #     return redirect('libro:listar_autor')
+    # return render(request,'libro/eliminar_autor.html',{'autor':autor})

@@ -8,6 +8,7 @@ class Autor(models.Model):
     nacionalidad = models.CharField(max_length=100, blank=False, null=False)
     descripcion = models.TextField(blank=False, null=False)
     fecha_creacion = models.DateField('Fecha de creación', auto_now=True, auto_now_add = False)
+    estado = models.BooleanField('Estado',default=True)
     
     class Meta:
         verbose_name = 'Autor'
