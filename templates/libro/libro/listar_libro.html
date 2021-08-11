@@ -1,5 +1,5 @@
 {% extends 'index.html' %}
-{% load staticfiles %}
+{% load static %}
 {% block titulo %}
 Biblioteca.dev | Listado de Libros
 {% endblock titulo %}
@@ -14,7 +14,7 @@ Biblioteca.dev | Listado de Libros
         <strong class="card-title">Listado de Libros</strong>
       </div>
       <div class="col-md-4">
-        <button type="button" class="btn btn-primary" onclick="abrir_modal_creacion('{% url 'libro:crear_libro' %}');">
+        <button type="button" class="btn btn-primary">
           REGISTRAR LIBRO</button>
       </div>
     </div>
