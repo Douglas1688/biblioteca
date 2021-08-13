@@ -8,15 +8,12 @@
         </div>
         <form id="form_edicion"  action="{% url 'libro:editar_libro' object.id %}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
-            <div class="modal-body">
-                <div id="erroresEdicion">
-                
-                </div>
+            <div class="modal-body">               
                 {{ form.as_p }}
             </div>
             <div class="modal-footer">
-                <button class="btn btn-danger" type="button" onclick="cerrar_modal_edicion();">Cancelar</button>
-                <button id="boton_creacion" class="btn btn-primary" type="button" onclick="editar();">Confirmar</button>
+                <button class="btn btn-danger" type="button" data-dismiss="modal">Cancelar</button>
+                <button class="btn btn-primary" type="submit" >Confirmar</button>
             </div>
         </form>        
     </div>

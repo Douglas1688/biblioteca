@@ -23,7 +23,8 @@ class Libro(models.Model):
     titulo = models.CharField('Titulo', max_length=255, blank=False, null=False)
     fecha_publicacion = models.DateField('Fecha de publicación', blank=False, null=False)
     fecha_creacion = models.DateField('Fecha de creación', auto_now=True, auto_now_add = False)
-    autor_id = models.ManyToManyField (Autor)
+    estado = models.BooleanField('Estado',default=True)
+    autor_id = models.ForeignKey(Autor,null=True,on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = 'Libro'
